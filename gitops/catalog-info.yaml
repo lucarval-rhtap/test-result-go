@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: test-result-go-gitops
+  description: This is GitOps manifest for test-result-go   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: rhtap/gitops=test-result-go
+    backstage.io/kubernetes-id: test-result-go 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: test-result-go
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:test-result-go
